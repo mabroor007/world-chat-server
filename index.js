@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
       res.send(result);
     })
     .catch((err) => {
-      res.send(err.message);
+      // res.send(err.message);
     });
 });
 app.post("/", (req, res) => {
