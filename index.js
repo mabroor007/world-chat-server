@@ -6,12 +6,16 @@ const Chats = require("./Chats");
 const Filter = require("bad-words");
 const filter = new Filter();
 
+const dburl =
+  "mongodb+srv://mabroorahmad:jdJ3PlNLnkHctNBB@cluster0.xsmpj.mongodb.net/worldchat?retryWrites=true&w=majority";
 // connection to the database
 mongoose
-  .connect("mongodb://127.0.0.1:27017/worldchat", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(dburl,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("Connection to the database up and running.....");
   })
@@ -33,7 +37,6 @@ app.get("/", (req, res) => {
       res.send(err.message);
     });
 });
-
 app.post("/", (req, res) => {
   const post = {
     name: filter.clean(req.body.name),
