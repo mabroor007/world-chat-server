@@ -6,11 +6,9 @@ const Chats = require("./Chats");
 const Filter = require("bad-words");
 const filter = new Filter();
 
-const dburl =
-  "mongodb+srv://mabroorahmad:jdJ3PlNLnkHctNBB@cluster0.xsmpj.mongodb.net/worldchat?retryWrites=true&w=majority";
 // connection to the database
 mongoose
-  .connect(dburl,
+  .connect(process.env.dburl,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
